@@ -20,6 +20,7 @@ public class test extends Application{
             grid.setPadding(new Insets(10,10,10,10));
             grid.setHgap(5);
             grid.setVgap(5);
+
         Label titel1 = new Label("Mathe Program"); //Erstes Label mit Titel
             grid.add(titel1,3,0,1,1 );
         Label description1= new Label("Geben Sie zwei Zahlen ein"); //Zweites Label mit Anweisung/Beschreibung
@@ -83,7 +84,10 @@ public class test extends Application{
                     Alert warning = new Alert(Alert.AlertType.ERROR, "Bitte Felder mit Zahlen füllen",ButtonType.OK);
                     warning.showAndWait();
                 }
-
+                catch (ArithmeticException divideZero) {
+                    Alert warning = new Alert(Alert.AlertType.ERROR, "Nicht mit Null teilen", ButtonType.OK);
+                    warning.showAndWait();
+                }
             }
         });
         Button div = new Button();
@@ -126,6 +130,9 @@ public class test extends Application{
 
 
         grid.add(add,2,12,1,1);
+        grid.add(sub,3,12,1,1);
+        grid.add(div,4,12,1,1);
+        grid.add(mult,5,12,1,1);
         //TODO:Buttons richtig anordnen
 
 
