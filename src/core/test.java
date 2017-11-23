@@ -19,7 +19,7 @@ public class test extends Application{
     public void start(Stage stage) throws Exception{
 //       Erstellung der Labels
         GridPane grid = new GridPane();       //Grundlegende Struktur
-            grid.setPadding(new Insets(100,10,10,10));
+            grid.setPadding(new Insets(10,10,10,10));
             grid.setHgap(5);
             grid.setVgap(5);
         Label titel1 = new Label("Mathe Program"); //Erstes Label mit Titel
@@ -31,9 +31,20 @@ public class test extends Application{
             digitField.setPromptText("Erste Zahl eingeben");
             digitField.setPrefColumnCount(10);
             digitField.getText();
-
-        Label digitField2 = new Label("Zweite Zahl");//Zweites Label mit Zahlenfeld
+//TODO: Zahlen sollen übergeben werden
+        TextField digitField2 = new TextField("Zweite Zahl");//Zweites Label mit Zahlenfeld
             grid.add(digitField2,6,8,1,1);
+            digitField2.setPromptText("Zweite Zahl eingeben");
+            digitField2.setPrefColumnCount(10);
+            digitField2.getText();
+//TODO: Zahlen sollen übergeben werden
+
+        TextField solutionField = new TextField("Ergebnis");//Textfeld mit der Lösung
+        grid.add(solutionField,12,0,1,1);
+        solutionField.setPromptText("Ergebnis");
+        solutionField.setPrefColumnCount(10);
+//TODO:Ergebnis soll ausgegeben werden
+
 
         Scene scene = new Scene(grid, 600, 400); //Erstellung der Scene
         stage.setTitle("Math Program");
@@ -45,7 +56,7 @@ public class test extends Application{
             add.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event)  {
-
+//TODO:Funktion hinzufügen
 //                    Calculation.add();
                 }
             });
