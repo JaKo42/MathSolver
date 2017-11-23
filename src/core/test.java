@@ -31,19 +31,19 @@ public class test extends Application{
             digitField.setPromptText("Erste Zahl eingeben");
             digitField.setPrefColumnCount(10);
             digitField.getText();
-            //TODO: Zahlen sollen übergeben werden
+
         TextField digitField2 = new TextField("Zweite Zahl");//Zweites Label mit Zahlenfeld
             grid.add(digitField2,6,8,1,1);
             digitField2.setPromptText("Zweite Zahl eingeben");
             digitField2.setPrefColumnCount(10);
             digitField2.getText();
-            //TODO: Zahlen sollen übergeben werden
+
 
         TextField solutionField = new TextField("Ergebnis");//Textfeld mit der Lösung
             grid.add(solutionField,12,0,1,1);
             solutionField.setPromptText("Ergebnis");
             solutionField.setPrefColumnCount(10);
-             //TODO:Ergebnis soll ausgegeben werden
+
 
 
         Scene scene = new Scene(grid, 600, 400); //Erstellung der Scene
@@ -60,13 +60,11 @@ public class test extends Application{
 
 
                     if ((digitField.getText() != null && digitField.getText() != null && !digitField.getText().isEmpty() && !digitField2.getText().isEmpty() ))
-                    Calculation.add(Integer.parseInt(digitField.getText()),Integer.parseInt(digitField2.getText()));
+                   solutionField.setText(""+(Calculation.add(Integer.parseInt(digitField.getText()),Integer.parseInt(digitField2.getText()))));
                 }
                 catch (NumberFormatException invalidEntry){
                     //TODO: Fehlerbehandlung einfügen
                 }
-
-                //TODO:Funktion hinzufügen
 
                 }
             });
