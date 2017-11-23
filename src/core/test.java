@@ -36,7 +36,7 @@ public class test extends Application{
             grid.add(digitField2,6,8,1,1);
             digitField2.setPromptText("Zweite Zahl eingeben");
             digitField2.setPrefColumnCount(10);
-            digitField2.get();
+            digitField2.getText();
             //TODO: Zahlen sollen übergeben werden
 
         TextField solutionField = new TextField("Ergebnis");//Textfeld mit der Lösung
