@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -17,38 +18,44 @@ public class test extends Application{
     public void start(Stage stage) throws Exception{
 //      Erstellung der Labels
         GridPane grid = new GridPane();       //Grundlegende Struktur
-            grid.setPadding(new Insets(10,10,10,10));
-            grid.setHgap(5);
-            grid.setVgap(5);
+        grid.setHgap(5);
+        grid.setVgap(5);
+//        grid.setAlignment(Pos.TOP_CENTER);
+        grid.setPadding(new Insets(10,10,10,10));
+        grid.setGridLinesVisible(false);
+        Scene scene = new Scene(grid, 600, 400); //Erstellung der Scene
+        stage.setTitle("Math Program");
+        stage.setScene(scene);
 
         Label titel1 = new Label("Mathe Program"); //Erstes Label mit Titel
-            grid.add(titel1,3,0,1,1 );
+            grid.add(titel1,3,0,2,1 );
+
         Label description1= new Label("Geben Sie zwei Zahlen ein"); //Zweites Label mit Anweisung/Beschreibung
-            grid.add(description1,3,3,1,1);
+            grid.add(description1,3,3,2,1);
+
         TextField digitField = new TextField("Erste Zahl");//Erstes Textfeld mit Zahlenfeld
-            grid.add(digitField,2,8,1,1);
+            grid.add(digitField,1,8,3,1);
             digitField.setPromptText("Erste Zahl eingeben");
             digitField.setPrefColumnCount(10);
             digitField.getText();
 
         TextField digitField2 = new TextField("Zweite Zahl");//Zweites Textfeld mit Zahlenfeld
-            grid.add(digitField2,6,8,1,1);
+            grid.add(digitField2,5,8,3,1);
             digitField2.setPromptText("Zweite Zahl eingeben");
             digitField2.setPrefColumnCount(10);
             digitField2.getText();
 
 
         TextField solutionField = new TextField("Ergebnis");//Textfeld mit der Lösung
-            grid.add(solutionField,12,0,1,1);
+            grid.add(solutionField,6,14,1,1);
             solutionField.setPromptText("Ergebnis");
             solutionField.setPrefColumnCount(10);
-            //TODO:Titel "Ergebnis" vor das Textfeld einfügen
+            //TODO:double ausgeben nicht nur int
+
+        grid.add(new Separator(),0,12,7,1);
 
 
 
-        Scene scene = new Scene(grid, 600, 400); //Erstellung der Scene
-        stage.setTitle("Math Program");
-        stage.setScene(scene);
 
         //Erstellung der Buttons
         Button add = new Button();
@@ -127,12 +134,10 @@ public class test extends Application{
             }
         });
 
-
-
-        grid.add(add,2,12,1,1);
-        grid.add(sub,3,12,1,1);
-        grid.add(div,4,12,1,1);
-        grid.add(mult,5,12,1,1);
+        grid.add(add,2,14,1,1);
+        grid.add(sub,3,14,1,1);
+        grid.add(div,4,14,1,1);
+        grid.add(mult,5,14,1,1);
         //TODO:Buttons richtig anordnen
 
 
