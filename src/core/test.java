@@ -70,7 +70,7 @@ public class test extends Application{
                 try {
 
 
-                    if ((digitField.getText() != null && digitField.getText() != null && !digitField.getText().isEmpty() && !digitField2.getText().isEmpty() ))
+                    if ((digitField.getText() != null && digitField2.getText() != null && !digitField.getText().isEmpty() && !digitField2.getText().isEmpty() ))
                         solutionField.setText(""+(Calculation.add(Double.parseDouble(digitField.getText()),Double.parseDouble(digitField2.getText()))));
                 }
                 catch (NumberFormatException invalidEntry){
@@ -88,8 +88,26 @@ public class test extends Application{
                 try {
 
 
-                    if ((digitField.getText() != null && digitField.getText() != null && !digitField.getText().isEmpty() && !digitField2.getText().isEmpty() ))
+                    if ((digitField.getText() != null && digitField2.getText() != null && !digitField.getText().isEmpty() && !digitField2.getText().isEmpty() ))
                       solutionField.setText(""+(Calculation.subtract(Double.parseDouble(digitField.getText()),Double.parseDouble(digitField2.getText()))));
+                }
+                catch (NumberFormatException invalidEntry){
+                    Alert warning = new Alert(Alert.AlertType.ERROR, "Bitte Felder mit Zahlen füllen",ButtonType.OK);
+                    warning.showAndWait();
+                }
+
+            }
+        });
+        Button div = new Button();
+        div.setText("Dividieren");
+        div.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) throws NumberFormatException {
+                try {
+
+
+                    if ((digitField.getText() != null && digitField2.getText() != null && !digitField.getText().isEmpty() && !digitField2.getText().isEmpty() ))
+                        solutionField.setText(""+(Calculation.divide(Double.parseDouble(digitField.getText()),Double.parseDouble(digitField2.getText()))));
                 }
                 catch (NumberFormatException invalidEntry){
                     Alert warning = new Alert(Alert.AlertType.ERROR, "Bitte Felder mit Zahlen füllen",ButtonType.OK);
@@ -101,24 +119,6 @@ public class test extends Application{
                 }
             }
         });
-        Button div = new Button();
-        div.setText("Dividieren");
-        div.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) throws NumberFormatException {
-                try {
-                //TODO:Dividieren durch 0 abfangen
-
-                    if ((digitField.getText() != null && digitField.getText() != null && !digitField.getText().isEmpty() && !digitField2.getText().isEmpty() ))
-                        solutionField.setText(""+(Calculation.divide(Double.parseDouble(digitField.getText()),Double.parseDouble(digitField2.getText()))));
-                }
-                catch (NumberFormatException invalidEntry){
-                    Alert warning = new Alert(Alert.AlertType.ERROR, "Bitte Felder mit Zahlen füllen",ButtonType.OK);
-                    warning.showAndWait();
-                }
-
-            }
-        });
         Button mult = new Button();
         mult.setText("Multiplizieren");
         mult.setOnAction(new EventHandler<ActionEvent>() {
@@ -127,7 +127,7 @@ public class test extends Application{
                 try {
 
 
-                    if ((digitField.getText() != null && digitField.getText() != null && !digitField.getText().isEmpty() && !digitField2.getText().isEmpty() ))
+                    if ((digitField.getText() != null && digitField2.getText() != null && !digitField.getText().isEmpty() && !digitField2.getText().isEmpty() ))
                         solutionField.setText(""+(Calculation.multiply(Double.parseDouble(digitField.getText()),Double.parseDouble(digitField2.getText()))));
                 }
                 catch (NumberFormatException invalidEntry){
@@ -160,6 +160,3 @@ public class test extends Application{
     }
 }
 
-    class NumberTextField extends TextField{
-
-    }
