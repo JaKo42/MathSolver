@@ -1,4 +1,5 @@
 package core;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -33,6 +34,8 @@ public class test extends Application{
         Label description1= new Label("Geben Sie zwei Zahlen ein"); //Zweites Label mit Anweisung/Beschreibung
             grid.add(description1,3,3,2,1);
 
+
+            //TODO: Schrift verschwindet beim auswählen des Feldes
         TextField digitField = new TextField("Erste Zahl");//Erstes Textfeld mit Zahlenfeld
             grid.add(digitField,1,8,3,1);
             digitField.setPromptText("Erste Zahl eingeben");
@@ -50,12 +53,13 @@ public class test extends Application{
             grid.add(solutionField,6,14,1,1);
             solutionField.setPromptText("Ergebnis");
             solutionField.setPrefColumnCount(10);
-            //TODO:double ausgeben nicht nur int
+            //TODO:double soll gekürzt werden
 
         grid.add(new Separator(),0,12,7,1);
 
 
-
+        //Nachkommastellen reduzieren
+        DecimalFormat df = new DecimalFormat("#.##");
 
         //Erstellung der Buttons
         Button add = new Button();
@@ -67,7 +71,7 @@ public class test extends Application{
 
 
                     if ((digitField.getText() != null && digitField.getText() != null && !digitField.getText().isEmpty() && !digitField2.getText().isEmpty() ))
-                        solutionField.setText(""+(Calculation.add(Integer.parseInt(digitField.getText()),Integer.parseInt(digitField2.getText()))));
+                        solutionField.setText(""+(Calculation.add(Double.parseDouble(digitField.getText()),Double.parseDouble(digitField2.getText()))));
                 }
                 catch (NumberFormatException invalidEntry){
                     Alert warning = new Alert(Alert.AlertType.ERROR, "Bitte Felder mit Zahlen füllen",ButtonType.OK);
@@ -85,7 +89,7 @@ public class test extends Application{
 
 
                     if ((digitField.getText() != null && digitField.getText() != null && !digitField.getText().isEmpty() && !digitField2.getText().isEmpty() ))
-                        solutionField.setText(""+(Calculation.subtract(Integer.parseInt(digitField.getText()),Integer.parseInt(digitField2.getText()))));
+                      solutionField.setText(""+(Calculation.subtract(Double.parseDouble(digitField.getText()),Double.parseDouble(digitField2.getText()))));
                 }
                 catch (NumberFormatException invalidEntry){
                     Alert warning = new Alert(Alert.AlertType.ERROR, "Bitte Felder mit Zahlen füllen",ButtonType.OK);
@@ -106,7 +110,7 @@ public class test extends Application{
                 //TODO:Dividieren durch 0 abfangen
 
                     if ((digitField.getText() != null && digitField.getText() != null && !digitField.getText().isEmpty() && !digitField2.getText().isEmpty() ))
-                        solutionField.setText(""+(Calculation.divide(Integer.parseInt(digitField.getText()),Integer.parseInt(digitField2.getText()))));
+                        solutionField.setText(""+(Calculation.divide(Double.parseDouble(digitField.getText()),Double.parseDouble(digitField2.getText()))));
                 }
                 catch (NumberFormatException invalidEntry){
                     Alert warning = new Alert(Alert.AlertType.ERROR, "Bitte Felder mit Zahlen füllen",ButtonType.OK);
@@ -124,7 +128,7 @@ public class test extends Application{
 
 
                     if ((digitField.getText() != null && digitField.getText() != null && !digitField.getText().isEmpty() && !digitField2.getText().isEmpty() ))
-                        solutionField.setText(""+(Calculation.multiply(Integer.parseInt(digitField.getText()),Integer.parseInt(digitField2.getText()))));
+                        solutionField.setText(""+(Calculation.multiply(Double.parseDouble(digitField.getText()),Double.parseDouble(digitField2.getText()))));
                 }
                 catch (NumberFormatException invalidEntry){
                     Alert warning = new Alert(Alert.AlertType.ERROR, "Bitte Felder mit Zahlen füllen",ButtonType.OK);
@@ -155,3 +159,7 @@ public class test extends Application{
 
     }
 }
+
+    class NumberTextField extends TextField{
+
+    }
