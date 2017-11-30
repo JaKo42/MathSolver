@@ -1,6 +1,5 @@
 package core;
 import java.text.DecimalFormat;
-import java.util.Scanner;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,7 +11,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class Calcstage extends Application{
-    Scanner digitReader = new Scanner(System.in);
 
 
     @Override
