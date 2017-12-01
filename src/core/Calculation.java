@@ -2,20 +2,20 @@ package core;
 
 public class Calculation {
 
-    public static int divide(int dig1, int dig2){
-        int solution = dig1/dig2;
+    public static double divide(double dig1, double dig2){
+        double solution = dig1/dig2;
         return solution;
     }
-    public static int multiply(int dig1, int dig2){
-        int solution = dig1*dig2;
+    public static double multiply(double dig1, double dig2){
+        double solution = dig1*dig2;
         return solution;
     }
-    public static int subtract(int dig1, int dig2){
-        int solution = dig1-dig2;
+    public static double subtract(double dig1, double dig2){
+        double solution = dig1-dig2;
         return solution;
     }
-    public static int add(int dig1, int dig2){
-        int solution = dig1+dig2;
+    public static double add(double dig1, double dig2){
+        double solution = dig1+dig2;
         return solution;
     }
 }
