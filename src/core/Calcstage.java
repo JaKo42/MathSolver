@@ -35,7 +35,6 @@ public class Calcstage extends Application{
             grid.add(description1,3,3,2,1);
 
 
-            //TODO: Schrift verschwindet beim auswählen des Feldes
             TextField digitField = new TextField("Erste Zahl");//Erstes Textfeld mit Zahlenfeld
             grid.add(digitField,1,8,3,1);
             digitField.setPromptText("Erste Zahl eingeben");
@@ -53,13 +52,13 @@ public class Calcstage extends Application{
             grid.add(solutionField,6,14,1,1);
             solutionField.setPromptText("Ergebnis");
             solutionField.setPrefColumnCount(10);
-            //TODO:double soll gekürzt werden
 
             grid.add(new Separator(),0,12,7,1);
 
+        Label equationSign = new Label("");
+        grid.add(equationSign,4,8,1,1);
+//        equationSign.setAlignment(Pos.TOP_CENTER);
 
-            //Nachkommastellen reduzieren
-            DecimalFormat df = new DecimalFormat("#.##");
 
             //Erstellung der Buttons
             Button add = new Button();
@@ -67,7 +66,8 @@ public class Calcstage extends Application{
             add.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) throws RuntimeException {
-                try {
+                    equationSign.setText("+");
+                    try {
 
 
                     if ((digitField.getText() != null && digitField2.getText() != null && !digitField.getText().isEmpty() && !digitField2.getText().isEmpty() ))
@@ -85,6 +85,7 @@ public class Calcstage extends Application{
             sub.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) throws RuntimeException {
+                    equationSign.setText("-");
                     try {
 
 
@@ -103,6 +104,7 @@ public class Calcstage extends Application{
             div.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) throws RuntimeException {
+                    equationSign.setText("/");
                     try {
 
 
@@ -124,6 +126,7 @@ public class Calcstage extends Application{
             mult.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) throws RuntimeException {
+                    equationSign.setText("*");
                     try {
 
 
@@ -142,7 +145,6 @@ public class Calcstage extends Application{
             grid.add(sub,3,14,1,1);
             grid.add(div,4,14,1,1);
             grid.add(mult,5,14,1,1);
-            //TODO:Buttons richtig anordnen
 
 
             stage.show();
