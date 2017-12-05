@@ -1,8 +1,9 @@
 package core;
 
-public class Calculation {
+public class Calculation  {
 
     public static double divide(double dig1, double dig2){
+        if(dig2==0.0) throw new ArithmeticException();
         double solution = dig1/dig2;
         return solution;
     }
